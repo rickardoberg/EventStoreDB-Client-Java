@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Fixed
+- Disable trace context extraction for deleted events [EventStoreDB-Client-Java#292](https://github.com/EventStore/EventStoreDB-Client-Java/pull/292)
+
+### Fixes
+- #291 [EventStoreDB-Client-Java#292](https://github.com/EventStore/EventStoreDB-Client-Java/pull/292)
+
 ## [5.4.3] - 2024-11-07
 ### Fixed
 - Disable trace context extraction for deleted events. [EventStoreDB-Client-Java#292](https://github.com/EventStore/EventStoreDB-Client-Java/pull/292)
