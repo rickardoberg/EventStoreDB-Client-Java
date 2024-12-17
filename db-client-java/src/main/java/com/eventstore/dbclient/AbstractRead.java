@@ -35,10 +35,9 @@ abstract class AbstractRead implements Publisher<ReadMessage> {
     @SuppressWarnings("unchecked")
     public void subscribe(Subscriber<? super ReadMessage> subscriber) {
         ReadSubscription readSubscription = new ReadSubscription(subscriber);
-        subscriber.onSubscribe(readSubscription);
-
         CompletableFuture<ReadSubscription> result = new CompletableFuture<>();
         this.client.run(channel -> {
+
             StreamsOuterClass.ReadReq request = StreamsOuterClass.ReadReq.newBuilder()
                     .setOptions(createOptions())
                     .build();
@@ -108,6 +107,7 @@ abstract class AbstractRead implements Publisher<ReadMessage> {
                     readSubscription.onError(t);
                 }
             });
+            subscriber.onSubscribe(readSubscription);
             return result;
         }).exceptionally(t -> {
             readSubscription.onError(t);
