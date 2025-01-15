@@ -3,10 +3,6 @@ package com.eventstore.dbclient;
 import com.eventstore.dbclient.proto.shared.Shared;
 import com.eventstore.dbclient.proto.streams.StreamsOuterClass;
 
-/**
- * TODO - Implement a better way to handle very long stream to not end
- * if OOM
- */
 class ReadStream extends AbstractRead {
     private final String streamName;
     private final ReadStreamOptions options;
